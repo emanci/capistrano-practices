@@ -30,7 +30,7 @@ cap install
 ```
 该命令会帮助我们创建一些文件, 它看起来像这样:  
 
-<img src="https://github.com/emanci/deploy-practices/blob/master/capistrano-structure.png" width = "450" alt="structure" align=center />  
+<img src="https://github.com/emanci/deploy-practices/blob/master/capistrano-structure.png" width = "240" alt="structure" align=center />  
 
 ##### 配置 deploy.rb
 如果要想更好的使用, 可能需要一定的 Ruby 和 Rake 的知识, 但是这里我们就简单的实践, 因此你按照我的配置就能成功.
