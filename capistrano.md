@@ -41,6 +41,18 @@ set :branch, 'master'
 set :deploy_to, "/var/www/html/capDemo"
 set :keep_releases, 5
 ```
+另外, 还有两个比较重要的配置项
+```code
+# linked_dirs
+append :linked_dirs, "tmp/sockets"
+# or
+set :linked_dirs, fetch(:linked_dirs, []).push('public/images', 'logs', 'tmp/pids')
+# linked_files
+append :linked_files, "config/database.yml"
+# or
+set :linked_files, fetch(:linked_files, []).push('.env')
+```
+Capistrano 每次部署会更新所有的文件和文件夹，但是有时候有些东西我并不想让它每次都更新。又比如生产环境的很多配置, 比如数据库配置或者其他一些敏感信息的配置是不会加入到版本库中，因此在生产环境配置后无需更改。那么我们就可以使用 linked_dirs 和 linked_files 这两个配置项。所不同的是，linked_dirs 是针对文件夹，而 linked_files 是针对某个文件或某些文件，这就保证了每次部署这些文件/文件夹都不会被更新。
 
 ##### 配置 production.rb
 ```code
