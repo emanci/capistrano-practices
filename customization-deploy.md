@@ -41,6 +41,17 @@ after 'deploy:started', 'fuck_you:fuck'
 ```
 这里我使用了 after，将自定义任务 fuck 放入了 started 之后执行。
 
+#### 几个常用的命令，可以在发布前帮助我们做一些检查性工作
+```code
+cap deploy:check
+cap production deploy —dry-run
+```
+
+查看所有可用的命令，其中包含你自己编写的自定义任务
+```code
+cap -T
+```
+
 ```code
 未完待续...
 ```

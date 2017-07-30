@@ -63,5 +63,15 @@ role :web, %w{deployer@127.0.0.1}
 ```code
 cap production deploy
 ```
+
+经过多次部署后, 服务器会生成一个这样的目录结构:  
+
+<img src="https://github.com/emanci/deploy-practices/blob/master/server-directory.png" width = "240" alt="structure" align=center />  
+
+*  current 是指当前版本, link 到 releases 下的指定版本目录(默认为最新的 releases)
+*  releases 每次部署都会产成一个目录存放项目源码, 目录个数由 :keep_releases 变量来控制
+*  repo 项目的 .git 目录
+*  shared 是项目中共享的内容, 不会随部署而改变
+
 好了, enjoy it.
 
