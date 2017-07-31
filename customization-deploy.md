@@ -33,6 +33,11 @@ end
 
 The console will output 'Fuck you'
 
+我们也可以单独执行自定义 Task， 但是如果执行的这个自定义 Task 之后还有其他自定义 Task，那么这些自定义 Task 也会按顺序执行，直到遇到预设 Hook 为止。
+```code
+cap production test:welcome
+```
+
 #### 如何把自定义任务放入 Capistrano 预设任务流
 上面已经介绍了，系统默认包含的那些 Task 是按照设定的顺序执行的，因此，在每个 Task 之前和之后都可以通过 before, after 添加自定义的 Task，将自定义的流程加入到部署的默认流程当中。
 比如，上面的自定义任务中，
