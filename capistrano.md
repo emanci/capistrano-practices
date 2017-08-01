@@ -73,5 +73,4 @@ cap production deploy
 *  repo 项目的 .git 目录
 *  shared 是项目中共享的内容, 不会随部署而改变
 
-好了, enjoy it.
-
+好了, Just enjoy it.

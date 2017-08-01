@@ -30,8 +30,19 @@ namespace :fuck_you do
   after 'deploy:started', 'fuck_you:fuck'
 end
 ```
-
 The console will output 'Fuck you'
+
+其实，这里也可以省去命名空间，写法如下
+```code
+after 'deploy:started', :fuck do
+  desc "funk you"
+  task :fuck do
+    puts "Fuck you"
+  end
+end
+```
+但是，我认为这不是个好主意。我通常会单独定义任务，然后在统一的地方来编写工作流，以决定整个部署按照什么流程顺序来执行。当然，对于复杂的自定义任务，我通常会以 .rake 文件的形式存放到 lib/capistrano/tasks 文件夹中，以便更好的管理这些任务。
+
 
 我们也可以单独执行自定义 Task， 但是如果执行的这个自定义 Task 之后还有其他自定义 Task，那么这些自定义 Task 也会按顺序执行，直到遇到预设 Hook 为止。
 ```code
@@ -52,7 +63,7 @@ cap deploy:check
 cap production deploy —dry-run
 ```
 
-查看所有可用的命令，其中包含你自己编写的自定义任务
+查看所有可用的 Task 命令，其中包含你自己编写的自定义任务
 ```code
 cap -T
 ```
